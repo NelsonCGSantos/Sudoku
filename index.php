@@ -66,19 +66,7 @@
 
         // Handle form submission
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            if (isset($_POST['get_tip'])) {
-                // Provide a tip
-                for ($i = 0; $i < 9; $i++) {
-                    for ($j = 0; $j < 9; $j++) {
-                        if ($puzzle[$i][$j] === 0) {
-                            $puzzle[$i][$j] = $original[$i][$j];
-                            $_SESSION['puzzle'] = $puzzle;
-                            $message = '💡 A tip has been provided!';
-                            break 2;
-                        }
-                    }
-                }
-            } elseif (isset($_POST['grid'])) {
+            if (isset($_POST['grid'])) {
                 // Validate puzzle
                 $userInput = $_POST['grid']; // Flattened input array
                 $userGrid = array_chunk($userInput, 9); // Convert back to 9x9 grid
@@ -165,7 +153,6 @@
 </div>
 
             <button type="submit">Submit</button>
-            <button type="submit" name="get_tip">Get Tip</button>
         </form>
     </div>
 </body>

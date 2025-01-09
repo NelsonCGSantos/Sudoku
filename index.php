@@ -53,7 +53,7 @@
         if (isset($_POST['difficulty'])) {
             $_SESSION['difficulty'] = $_POST['difficulty'];
             $_SESSION['puzzle'] = $puzzles[$_POST['difficulty']];
-            $_SESSION['original'] = $_SESSION['puzzle']; // Store original puzzle for tips
+            $_SESSION['original'] = $_SESSION['puzzle']; 
         } elseif (!isset($_SESSION['puzzle'])) {
             $_SESSION['difficulty'] = 'easy';
             $_SESSION['puzzle'] = $puzzles['easy'];
@@ -141,7 +141,7 @@
     <?php
     foreach ($puzzle as $rowIndex => $row) {
         foreach ($row as $colIndex => $cell) {
-            // Ensure $original is defined and has the correct structure
+           
             $isOriginalCell = isset($original[$rowIndex][$colIndex]) && $original[$rowIndex][$colIndex] !== 0;
             $value = ($cell !== 0) ? $cell : '';
             echo $isOriginalCell
